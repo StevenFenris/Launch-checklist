@@ -20,7 +20,6 @@ window.addEventListener("load", function () {
        let fuelLevel = document.querySelector("input[name=fuelLevel]");
        let cargoMass = document.querySelector("input[name=cargoMass]");
        let missionUpdate = document.getElementById("faultyItems");
-      //  console.log(pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value);
        if (!pilotName.value || !copilotName.value || !fuelLevel.value || !cargoMass.value) {
            alert("All fields are required!")
            event.preventDefault();
@@ -41,8 +40,8 @@ window.addEventListener("load", function () {
           missionUpdate.style = ("visibility: visible");
           launchStatus.style = ("color: red");
           launchStatus.innerHTML = ("SHUTTLE NOT READY FOR LAUNCH");
-          fuelLevel.value < 10000 ? fuelStatus.innerHTML = ("Fuel level not high enough for launch"):null;
-          cargoMass.value > 10000 ? cargoStatus.innerHTML = ("Cargo Mass too High for Liftoff"):null;
+          fuelLevel.value <= 10000 ? fuelStatus.innerHTML = ("Fuel level not high enough for launch"):null;
+          cargoMass.value >= 10000 ? cargoStatus.innerHTML = ("Cargo Mass too High for Liftoff"):null;
        };
        fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
       //  const jsonPlanets = response.json.then(function(json);
@@ -51,7 +50,6 @@ window.addEventListener("load", function () {
         //  console.log(json)
          planetRando = json[Math.floor((Math.random() * 6))]
                   const div = document.getElementById("missionTarget");
-                  // Add HTML that includes the JSON data
                   div.innerHTML = `
                      <h2>Mission Destination</h2>
                         <ol>
