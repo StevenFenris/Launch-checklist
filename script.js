@@ -40,10 +40,10 @@ window.addEventListener("load", function () {
           missionUpdate.style = ("visibility: visible");
           launchStatus.style = ("color: red");
           launchStatus.innerHTML = ("SHUTTLE NOT READY FOR LAUNCH");
-          fuelLevel.value <= 10000 ? fuelStatus.innerHTML = ("Fuel level not high enough for launch"):null;
-          cargoMass.value >= 10000 ? cargoStatus.innerHTML = ("Cargo Mass too High for Liftoff"):null;
-       }; else if(fuelLevel.value >= 10000 || cargoMass <= 10000){ 
-          launchStatus.style = ("color: green") 
+          fuelLevel.value < 10000 ? fuelStatus.innerHTML = ("Fuel level not high enough for launch"):null;
+          cargoMass.value > 10000 ? cargoStatus.innerHTML = ("Cargo Mass too High for Liftoff"):null;
+       } else if(fuelLevel.value >= 10000 || cargoMass <= 10000){ 
+          launchStatus.style = ("color: green"); 
           launchStatus.innerHTML = ("SHUTTLE READY FOR LAUNCH");
          }
        fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
