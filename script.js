@@ -45,6 +45,7 @@ window.addEventListener("load", function () {
        } else if(fuelLevel.value >= 10000 || cargoMass <= 10000){ 
           launchStatus.style = ("color: green"); 
           launchStatus.innerHTML = ("SHUTTLE READY FOR LAUNCH");
+          missionUpdate.style = ("visibility: invisible");
          }
        fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
       //  const jsonPlanets = response.json.then(function(json);
